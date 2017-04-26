@@ -91,7 +91,7 @@ $(document).ready(
 
 
 	<div class="container">
-		<div class="page page0 cur" style="visibility: visible;">
+		<div class="page page0" style="visibility: visible;">
 			<div class="user-img fadeInDown">
 				<div class="flash">
 					<img src="img/logo.png" alt="">
@@ -158,6 +158,7 @@ $(document).ready(
 <script type="text/javascript">
 	window.onload = function(){
 		$(".loading").hide();
+		$(".page0").addClass("cur");
 		if(/(iPhone|iPod|iOS|Android|Windows Phone)/i.test(navigator.userAgent)){
 		}else{
 			$(".pc").show();
