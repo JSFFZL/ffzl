@@ -76,9 +76,14 @@ $(document).ready(
           })();
 	}
 </script> 
-
 </head>
 <body>
+<div class="loading">
+	<p>正在加载。。。</p>
+</div>
+<div class="pc" style="display: none;">
+	<p>网站暂不支持该平台，请在移动端观看，谢谢！</p>
+</div>
 <div class="paly" id="off">
 	<img src="img/music131.png" class="rota" id="music-iocn" alt="旋转">
 </div>
@@ -150,6 +155,14 @@ $(document).ready(
 	</div>
 
 	<img  class="xiangxiatishi" src="img/prompt.png" />
-
+<script type="text/javascript">
+	window.onload = function(){
+		$(".loading").hide();
+		if(/(iPhone|iPod|iOS|Android|Windows Phone)/i.test(navigator.userAgent)){
+		}else{
+			$(".pc").show();
+		}
+	}
+</script>
 </body>
 </html>
