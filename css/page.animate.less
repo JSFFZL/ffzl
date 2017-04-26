@@ -1,0 +1,215 @@
+@import url("animate.min.less");
+
+
+
+.page0{
+	&.cur{
+		.user-img{
+			width: 2.8rem;
+			height: 2.8rem;
+			margin: 10% auto 0 auto;
+			margin-top: 30%;
+			img{
+				width: 100%;
+			}
+		}
+		.fadeInDown{
+			.animated;
+			.fadeInDown; 
+			animation-delay: 0.5s;
+		}
+		ul{
+			margin-top: .30rem;
+			font-size: 0.30rem;
+			line-height: 0.55rem;
+			text-align: center;
+			li{
+				.animated;
+				.fadeIn;
+			}
+			li:first-child{
+				animation-delay: 1.5s;
+			}
+			li:nth-of-type(2){
+				animation-delay: 3.5s;
+			}
+			li:nth-of-type(3){
+				animation-delay: 5.5s;
+			}
+			li:last-child{
+				animation-delay: 7.5s;
+			}
+		}
+		.flash{
+			.animated;
+			.flash;
+			animation-delay: 9.0s;
+		}
+	}
+}
+
+
+
+.page1{
+	&.cur{
+		.useriocn{
+			float: left;
+			width: 2.5rem;
+			height:2.5rem;
+			margin:1.2rem 0.3rem 0.5rem 0.5rem;
+			img{
+				width: 100%;
+			}
+			.animated;
+			.fadeInRightBig;
+			animation-delay: 0.5s;
+		}
+		.describe{
+			margin:0.9rem 0.3rem 0.3rem 0.3rem; 
+			padding-top: 0.08rem;
+			ul{
+				line-height: 0.5rem;
+			}
+			.one{
+				.animated;
+				.fadeInDownBig;
+				animation-delay: 1s;
+			}
+			.two{
+				.animated;
+				.fadeInLeftBig;
+				animation-delay: 2.5s;
+			}
+			.three{
+				.animated;
+				.fadeInUpBig;
+				animation-delay: 3.5s;
+			}
+		}
+		.bg{
+			animation: opcity 8s linear infinite alternate;
+			-webkit-animation: opcity 8s linear infinite alternate;
+		}
+		
+		.main{
+			position: absolute;
+			top: 0;
+		}
+	}
+	
+}
+
+.page2{
+	&.cur{
+		.title{
+			width: 30%;
+			margin: 5% auto 0 auto; 
+			text-align: center;
+	  	 	img{
+	  	 		width: 100%;
+	  	 	}
+		}
+		.table{
+			margin-top: 8%;
+		}
+		ul{
+			display: box;              /* OLD - Android 4.4- */
+			display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+			display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+			display: -ms-flexbox;      /* TWEENER - IE 10 */
+			display: -webkit-flex;     /* NEW - Chrome */
+			display: flex; 
+			li{
+				-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+				-moz-box-flex: 1;         /* OLD - Firefox 19- */
+				-webkit-flex: 1;          /* Chrome */
+				-ms-flex: 1;              /* IE 10 */
+				flex: 1;  
+				text-align: center;
+				margin:0 3%;
+				div{
+					width: 1.2rem;
+					height: 1.2rem;
+					border-radius:50%;
+					overflow:hidden;
+					img{
+						width: 100%;
+					}
+				}
+			}
+			.solid{
+				border: solid #000 1px;
+			}
+		}
+		
+	}
+}
+
+@keyframes opcity{
+	from{
+		transform:scale(1,0);
+		-webkit-transform:scale(1,1); 
+	}
+	to{
+		transform:scale(1.1,1.1);
+		-webkit-transform:scale(1.1,1.1); 
+	}
+}
+@-webkit-keyframes opcity{
+	from{
+		transform:scale(0,0);
+		-webkit-transform:scale(0,0); 
+	}
+	to{
+		transform:scale(.3,.3);
+		-webkit-transform:scale(.3,.3); 
+	}
+}
+
+.xiangxiatishi{
+	position: fixed;
+	bottom: .1rem;
+	left: 50%;
+	width: 10%;
+	-webkit-transform:translateX(-50%);
+	-webkit-animation:dong 1s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes dong{
+	from{
+		bottom:.08rem;
+	}
+	to{
+		bottom: .5rem;
+	}
+}
+/*music*/
+#off{
+	position: fixed;
+	top: 0%;
+	right: 3%;
+	z-index: 9999;
+	width: .6rem;
+	height: .6rem;
+	padding: .05rem;
+	img{
+		width: 100%;
+		height: 100%;
+	}
+}
+#audio{
+	display: none;
+	height: 0px;
+}
+.rota{
+	animation: rotate 5s linear infinite;
+	-webkit-animation: rotate 5s linear infinite;
+}
+@-webkit-keyframes rotate {
+	from{transform: rotate(0deg);}
+	to{transform: rotate(360deg);}
+}
+keyframes rotate {
+	from{transform: rotate(0deg);}
+	to{transform: rotate(360deg);}
+}

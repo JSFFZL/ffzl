@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/page.css">
+<link rel="stylesheet" type="text/css" href="css/page.animate.css">
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/setFontSize.js"></script>
+<script type="text/javascript">
+$(document).ready(
+	function() {
+		var nowpage = 0;
+		var pageMax = $(".page").length;
+		//给最大的盒子增加事件监听
+		$(".container").swipe({
+			swipe:function(event, direction, distance, duration, fingerCount) {
+				if(direction == "up"){
+				 	if(nowpage >= pageMax-1){ //最后一屏
+				 		location.reload(); //刷新到第一屏
+				 	}else{
+				 		nowpage = nowpage + 1;
+				 		animate(page);
+				 	}
+				 }else if(direction == "down"){
+				 	if (nowpage != 0) { //防止第一屏向上拖
+				 		nowpage = nowpage - 1;
+				 		// page();
+				 		// animate();
+				 		animate(page);
+				 	}
+				 }
+				// 回调函数，根据不同情况调用
+				function animate(fn){
+			 		$(".container").animate({"top":nowpage * -100 + "%"},400); //实现动画的滚动
+			 		setTimeout(fn,402);
+			 	}
+			 	function page(){
+			 		$(".page").eq(nowpage).addClass("cur").css("visibility","visible").siblings().removeClass("cur").css("visibility","hidden"); //执行动画
+			 	}
+		 }
+	});
+});
+</script>
+<script type="text/javascript">
+	window.onload = function(){
+		/*解决不同浏览器不能播放的情况*/
+		// function toggleSound() {
+		//      if (audio.paused) { //判读是否播放
+		//           audio.play(); //没有就播放
+		//      }
+  //         }
+          // toggleSound();
+          (function(){
+	          	var audio = document.getElementById("audio"); 
+	          	var musiIocn = document.getElementById("music-iocn");
+	          	var off = document.getElementById("off");
+
+	          	off.onclick = function(){
+	          		if(off.className == "paly"){  //如果当前播放
+	          			audio.pause(); //停止（暂停）
+		        		off.className="stop"; //暂停
+		        		musiIocn.src = "img/music130.png";  //暂停图片
+		        		musiIocn.className = " ";
+		        	}else if(off.className == "stop"){  //如果当前暂停
+		        		audio.play();  //开始播放
+		        		off.className="paly";  //开始播放
+		        		musiIocn.src = "img/music131.png"; //播放图片
+		        		musiIocn.className = "rota";  //追加图片360旋转CSS3动画
+		        	} 
+	           }
+          })();
+	}
+</script> 
+
+</head>
+<body>
+<div class="paly" id="off">
+	<img src="img/music131.png" class="rota" id="music-iocn" alt="旋转">
+</div>
+<audio id="audio" src="img/mp3.mp3"  loop autoplay></audio>
+
+
+	<div class="container">
+		<!-- <div class="page page0 cur" style="visibility: visible;">
+			<div class="user-img fadeInDown">
+				<div class="flash">
+					<img src="img/logo.png" alt="">
+				</div>
+			</div>
+			<ul>
+				<li>爱旅行，爱摄影，爱生活…… </li>
+				<li>喜欢一切美的东西。为了记录和表达。</li>
+				<li>拍最美的风景给你，拍最美的你给自己。</li>
+				<li>记录我曾经摄影的点点滴滴。</li>
+			</ul>
+		</div> -->
+
+		<!-- <div class="page page1">
+			<div class="bg"></div>
+			<div class="main">
+				<div class="useriocn">
+					<img src="img/userImg.png" alt="">
+				</div>
+				<div class="describe">
+					<ul>
+						<div class="one">
+							<li>摄影师：孟庆凡</li>
+							<li>艺名：非凡主力</li>
+							<li>职业：青春人像摄影师</li>
+							<li>出生年月：1992.1.5</li>
+							<li>所在城市：中国北京</li>
+							<li>摄影兴趣：人像，旅游风光</li>
+						</div>
+						<li><div class="height15"></div></li>
+						<li class="two">简介：照片风格理念：把青春唯美的呈现出来，照片多为颜色鲜明，人物形象优质。 </li>
+						<li><div class="height15"></div></li>
+						<li class="three">摄影经历：最初摄影是因为喜欢旅游，记录沿途的风景，生活的点滴，这也是我从小就的爱好，有了自己的相机以后更让我爱上取器景中的世界。丰富秉承着摄影不是一门技术而是一门艺术的理念。在我心中，摄影梦，一场不愿苏醒的梦。</li>
+					</ul>
+				</div>
+			</div>
+		</div> -->
+
+
+		<div class="page page2 cur" style="visibility: visible;">
+			<div class="title"><img src="img/glory.png" alt=""></div>
+			<div class="table">
+				<ul>
+					<li>
+						<a href="http://m.poco.cn/vision/photospace.php?user_id=173812135" target="_blank"><div><img src="img/logo_poco.png" alt="poco网"></div></a>	
+					</li>
+					<li>
+						<a href="https://tuchong.com/498544/" target="_blank"><div><img src="img/logo_tc.jpg" alt="图虫网"> </div></a>
+					</li>
+					<li>
+						<a href="http://ffzl.pp.163.com/" target="_blank"><div> <img src="img/logo_wy.png" alt="网易摄影"> </div></a>
+					</li>	
+					<li>
+						<a href="http://my.fengniao.com/ffzl" target="_blank"><div> <img src="img/logo_fn.jpg" alt="蜂鸟网"> </div></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="page page3"><h1>我是3号屏幕</h1></div>
+		<div class="page page4"><h1>我是4号屏幕</h1></div>
+	</div>
+
+	<img  class="xiangxiatishi" src="img/prompt.png" />
+
+</body>
+</html>

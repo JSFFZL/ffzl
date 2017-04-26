@@ -1,0 +1,56 @@
+
+/*
+块背景设置
+box background 
+*/
+.container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 0.30rem;
+}
+.container .page{
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  visibility:hidden;
+}
+
+.container .page0{
+
+}
+.container .page1{
+
+}
+.container .page1 .bg{
+  width: 100%;
+  height: 100%;
+  background-image:url("../img/bg03.png"),url("../img/bg01.png");
+  background-repeat: no-repeat, no-repeat;  
+  background-position: top,bottom;
+  background-size: 100%,100%;
+}
+
+
+.container .page2{
+}
+
+
+
+.container .page3{
+}
+.container .page4{
+}
+.height15{
+  height: 0.5rem;
+}
+
+
+@-webkit-keyframes dong{
+  from{
+    bottom:20px;
+  }
+  to{
+    bottom: 60px;
+  }
+}
