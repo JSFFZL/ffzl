@@ -36,8 +36,8 @@ $(document).ready(
 				 }
 				// 回调函数，根据不同情况调用
 				function animate(fn){
-			 		$(".container").animate({"top":nowpage * -100 + "%"},400); //实现动画的滚动
-			 		setTimeout(fn,402);
+			 		$(".container").animate({"top":nowpage * -100 + "%"},500); //实现动画的滚动
+			 		setTimeout(fn,502);
 			 	}
 			 	function page(){
 			 		$(".page").eq(nowpage).addClass("cur").css("visibility","visible").siblings().removeClass("cur").css("visibility","hidden"); //执行动画
@@ -74,6 +74,12 @@ $(document).ready(
 		        	} 
 	           }
           })();
+          $(".loading").hide();
+		$(".page0").addClass("cur");
+		if(/(iPhone|iPod|iOS|Android|Windows Phone)/i.test(navigator.userAgent)){
+		}else{
+			$(".pc").show();
+		}
 	}
 </script> 
 </head>
@@ -155,15 +161,5 @@ $(document).ready(
 	</div>
 
 	<img  class="xiangxiatishi" src="img/prompt.png" />
-<script type="text/javascript">
-	window.onload = function(){
-		$(".loading").hide();
-		$(".page0").addClass("cur");
-		if(/(iPhone|iPod|iOS|Android|Windows Phone)/i.test(navigator.userAgent)){
-		}else{
-			$(".pc").show();
-		}
-	}
-</script>
 </body>
 </html>
