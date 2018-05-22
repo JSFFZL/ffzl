@@ -1,4 +1,4 @@
-/*by  sunjingjing */
+
 //初始化rem
 (function(){
     var getStyle = (function(){
