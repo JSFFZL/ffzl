@@ -12,76 +12,10 @@
 <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/setFontSize.js"></script>
 <script type="text/javascript">
-$(document).ready(
-	function() {
-		var nowpage = 0;
-		var pageMax = $(".page").length;
-		//给最大的盒子增加事件监听
-		$(".container").swipe({
-			swipe:function(event, direction, distance, duration, fingerCount) {
-				if(direction == "up"){
-				 	if(nowpage >= pageMax-1){ //最后一屏
-				 		location.reload(); //刷新到第一屏
-				 	}else{
-				 		nowpage = nowpage + 1;
-				 		animate(page);
-				 	}
-				 }else if(direction == "down"){
-				 	if (nowpage != 0) { //防止第一屏向上拖
-				 		nowpage = nowpage - 1;
-				 		// page();
-				 		// animate();
-				 		animate(page);
-				 	}
-				 }
-				// 回调函数，根据不同情况调用
-				function animate(fn){
-			 		$(".container").animate({"top":nowpage * -100 + "%"},500); //实现动画的滚动
-			 		setTimeout(fn,502);
-			 	}
-			 	function page(){
-			 		$(".page").eq(nowpage).addClass("cur").css("visibility","visible").siblings().removeClass("cur").css("visibility","hidden"); //执行动画
-			 	}
-		 }
-	});
-});
-</script>
-<script type="text/javascript">
-	window.onload = function(){
-		/*解决不同浏览器不能播放的情况*/
-		// function toggleSound() {
-		//      if (audio.paused) { //判读是否播放
-		//           audio.play(); //没有就播放
-		//      }
-  //         }
-          // toggleSound();
-          (function(){
-	          	var audio = document.getElementById("audio"); 
-	          	var musiIocn = document.getElementById("music-iocn");
-	          	var off = document.getElementById("off");
 
-	          	off.onclick = function(){
-	          		if(off.className == "paly"){  //如果当前播放
-	          			audio.pause(); //停止（暂停）
-		        		off.className="stop"; //暂停
-		        		musiIocn.src = "img/music130.png";  //暂停图片
-		        		musiIocn.className = " ";
-		        	}else if(off.className == "stop"){  //如果当前暂停
-		        		audio.play();  //开始播放
-		        		off.className="paly";  //开始播放
-		        		musiIocn.src = "img/music131.png"; //播放图片
-		        		musiIocn.className = "rota";  //追加图片360旋转CSS3动画
-		        	} 
-	           }
-          })();
-          $(".loading").hide();
-		$(".page0").addClass("cur");
-		if(/(iPhone|iPod|iOS|Android|Windows Phone)/i.test(navigator.userAgent)){
-		}else{
-			$(".pc").show();
-		}
-	}
-</script> 
+
+</script>
+
 </head>
 <body>
 <div class="loading">
@@ -93,7 +27,7 @@ $(document).ready(
 <div class="paly" id="off">
 	<img src="img/music131.png" class="rota" id="music-iocn" alt="旋转">
 </div>
-<audio id="audio" src="img/mp3.mp3"  loop autoplay></audio>
+
 
 
 	<div class="container">
@@ -142,13 +76,13 @@ $(document).ready(
 			<div class="table">
 				<ul>
 					<li>
-						<a href="http://m.poco.cn/vision/photospace.php?user_id=173812135" target="_blank"><div><img src="img/logo_poco.png" alt="poco网"></div></a>	
+						<a href="http://www.poco.cn/user/user_center?user_id=173812135" target="_blank"><div><img src="img/logo_poco.png" alt="poco网"></div></a>	
 					</li>
 					<li>
 						<a href="https://tuchong.com/498544/" target="_blank"><div><img src="img/logo_tc.jpg" alt="图虫网"> </div></a>
 					</li>
 					<li>
-						<a href="http://ffzl.pp.163.com/" target="_blank"><div> <img src="img/logo_wy.png" alt="网易摄影"> </div></a>
+						<a href="https://www.zcool.com.cn/u/12956734#tab_anchor" target="_blank"><div> <img src="img/logo_wy.png" alt="网易摄影"> </div></a>
 					</li>	
 					<li>
 						<a href="http://my.fengniao.com/ffzl" target="_blank"><div> <img src="img/logo_fn.jpg" alt="蜂鸟网"> </div></a>
@@ -156,10 +90,83 @@ $(document).ready(
 				</ul>
 			</div>
 		</div>
-		<div class="page page3"><h1>我是3号屏幕</h1></div>
-		<div class="page page4"><h1>我是4号屏幕</h1></div>
+		<!-- <div class="page page3"><h1>我是3号屏幕</h1></div>
+		<div class="page page4"><h1>我是4号屏幕</h1></div> -->
 	</div>
 
 	<img  class="xiangxiatishi" src="img/prompt.png" />
+	<audio id="audio" src="img/music.mp3" controls autoplay ></audio>
+	<script type="text/javascript">
+	$(document).ready(
+	function() {
+		var nowpage = 0;
+		var pageMax = $(".page").length;
+		//给最大的盒子增加事件监听
+		$(".container").swipe({
+			swipe:function(event, direction, distance, duration, fingerCount) {
+				if(direction == "up"){
+				 	if(nowpage >= pageMax-1){ //最后一屏
+				 		location.reload(); //刷新到第一屏
+				 	}else{
+				 		nowpage = nowpage + 1;
+				 		animate(page);
+				 	}
+				 }else if(direction == "down"){
+				 	if (nowpage != 0) { //防止第一屏向上拖
+				 		nowpage = nowpage - 1;
+				 		// page();
+				 		// animate();
+				 		animate(page);
+				 	}
+				 }
+				// 回调函数，根据不同情况调用
+				function animate(fn){
+			 		$(".container").animate({"top":nowpage * -100 + "%"},500); //实现动画的滚动
+			 		setTimeout(fn,502);
+			 	}
+			 	function page(){
+			 		$(".page").eq(nowpage).addClass("cur").css("visibility","visible").siblings().removeClass("cur").css("visibility","hidden"); //执行动画
+			 	}
+		 }
+	});
+});
+		window.onload = function(){
+			var audio = document.getElementById("audio"); 
+					  var musiIocn = document.getElementById("music-iocn");
+					  var off = document.getElementById("off");
+			console.log(audio)
+			/*解决不同浏览器不能播放的情况*/
+			function toggleSound() {
+			     if (audio.paused) { //判读是否播放
+					audio.play(); //没有就播放
+			     }
+	          }
+			  toggleSound();
+			  (function(){
+				
+					  
+					//   audio.play();  //开始播放
+					  off.onclick = function(){
+						  if(off.className == "paly"){  //如果当前播放
+							  audio.pause(); //停止（暂停）
+							off.className="stop"; //暂停
+							musiIocn.src = "img/music130.png";  //暂停图片
+							musiIocn.className = " ";
+						}else if(off.className == "stop"){  //如果当前暂停
+							audio.play();  //开始播放
+							off.className="paly";  //开始播放
+							musiIocn.src = "img/music131.png"; //播放图片
+							musiIocn.className = "rota";  //追加图片360旋转CSS3动画
+						} 
+				   }
+			  })();
+			  $(".loading").hide();
+			$(".page0").addClass("cur");
+			if(/(iPhone|iPod|iOS|Android|Windows Phone)/i.test(navigator.userAgent)){
+			}else{
+				$(".pc").show();
+			}
+		}
+	</script> 
 </body>
 </html>
